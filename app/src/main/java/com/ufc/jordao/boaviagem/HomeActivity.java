@@ -21,6 +21,8 @@ public class HomeActivity extends Activity {
     public void selecionarOpcao(View v){
         switch (v.getId()){
             case R.id.item_novo_gasto:
+                Intent newGastedActivity = new Intent(HomeActivity.this, NewGastedActivity.class);
+                startActivity(newGastedActivity);
                 break;
             case R.id.item_nova_viagem:
                 Intent newTripActivity = new Intent(HomeActivity.this, NewTripActivity.class);
