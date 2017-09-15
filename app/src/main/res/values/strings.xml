@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Boa Viagem</string>
+
+    <!-- Tela home -->
+    <string name="novo_gasto">Novo gasto</string>
+    <string name="nova_viagem">Nova viagem</string>
+    <string name="minhas_viagens">Minhas viagens</string>
+    <string name="configuracoes">Configurações</string>
+</resources>
