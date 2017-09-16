@@ -60,55 +60,26 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:background="#555"/>
-
-            <TextView
-                android:text="Tipo da viagem"
-                android:textSize="8pt"/>
-
-            <RadioGroup
-                android:id="@+id/tipoViagem"
-                android:orientation="horizontal">
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/lazer"
-                    android:checked="true"
-                    android:text="Lazer"
-                    android:textColor="@color/colorPrimaryDark"/>
-
-                <RadioButton
-                    android:id="@+id/negocios"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:text="Negócios"
-                    android:textColor="@color/colorPrimaryDark"/>
-
-            </RadioGroup>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:background="#555"/>
-
             <TableRow>
                 <TextView
-                    android:layout_gravity="center"
-                    android:text="Data da chegada"
+                    android:text="Valor"
                     android:textSize="8pt"/>
+
                 <TextView
-                    android:layout_gravity="center"
-                    android:text="Data da saída"
+                    android:text="Data"
                     android:textSize="8pt"/>
             </TableRow>
 
             <TableRow>
+                <EditText
+                    android:id="@+id/valor"
+                    android:inputType="text"
+                    android:background="@drawable/edit_text_box"
+                    android:textColor="@color/colorPrimaryDark"/>
+
                 <Button
-                    android:id="@+id/dataChegada"
-                    android:onClick="selecionarData"
+                    android:id="@+id/dataGasto"
+                    android:onClick="selecionarDataGasto"
                     android:text="Selecione"
                     android:background="@color/colorPrimaryDark"
                     android:textColor="@color/textColor"
@@ -116,20 +87,7 @@
                     android:layout_marginRight="2pt"
                     android:textAlignment="textStart"
                     android:drawableLeft="@android:drawable/ic_menu_today" />
-
-                <Button
-                    android:id="@+id/dataSaida"
-                    android:onClick="selecionarData"
-                    android:text="Selecione"
-                    android:background="@color/colorPrimaryDark"
-                    android:textColor="@color/textColor"
-                    android:layout_marginLeft="2pt"
-                    android:layout_marginRight="2pt"
-                    android:textAlignment="textStart"
-                    android:drawableLeft="@android:drawable/ic_menu_today" />
-
             </TableRow>
-
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -138,12 +96,12 @@
                 android:background="#555"/>
 
             <TextView
-                android:text="Orçameto"
+                android:text="Descrição"
                 android:textSize="8pt"/>
 
             <EditText
-                android:id="@+id/orcamento"
-                android:inputType="numberDecimal"
+                android:id="@+id/descricao"
+                android:inputType="text"
                 android:background="@drawable/edit_text_box"
                 android:textColor="@color/colorPrimaryDark"/>
 
@@ -154,23 +112,26 @@
                 android:layout_marginBottom="5dp"
                 android:background="#555"/>
 
-            <TableRow>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:text="Nº de pessoas"
-                    android:textSize="8pt"/>
+            <TextView
+                android:text="Local"
+                android:textSize="8pt"/>
 
-                <EditText
-                    android:id="@+id/quantidadePessoas"
-                    android:inputType="number"
-                    android:padding="5dp"
-                    android:background="@drawable/edit_text_line"
-                    android:textColor="@color/colorPrimaryDark"/>
-            </TableRow>
+            <Spinner
+                android:id="@+id/local"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </Spinner>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="#555"/>
+            
             <Button
                 android:onClick="salvarViagem"
-                android:text="Criar viagem"
+                android:text="Gastei !"
                 android:background="@color/colorPrimaryDark"
                 android:textColor="@color/textColor"
                 android:layout_marginTop="5dp"/>
