@@ -73,7 +73,7 @@
             <TableRow>
                 <EditText
                     android:id="@+id/valor"
-                    android:inputType="text"
+                    android:inputType="numberDecimal"
                     android:background="@drawable/edit_text_box"
                     android:textColor="@color/colorPrimaryDark"/>
 

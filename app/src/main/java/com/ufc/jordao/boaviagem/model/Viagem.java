@@ -12,9 +12,18 @@ public class Viagem {
     private TipoViagem tipo;
     private Date dataChegada;
     private Date dataSaida;
-    private String orcamento;
+    private double orcamento;
     private int qtdPessoas;
     private ArrayList<Gasto> listGastos;
+
+    public Viagem(String destino, TipoViagem tipo, Date dataChegada, Date dataSaida, double orcamento, int qtdPessoas) {
+        this.destino = destino;
+        this.tipo = tipo;
+        this.dataChegada = dataChegada;
+        this.dataSaida = dataSaida;
+        this.orcamento = orcamento;
+        this.qtdPessoas = qtdPessoas;
+    }
 
     public ArrayList<Gasto> getListGastos() {
         return listGastos;
@@ -56,11 +65,11 @@ public class Viagem {
         this.dataSaida = dataSaida;
     }
 
-    public String getOrcamento() {
+    public double getOrcamento() {
         return orcamento;
     }
 
-    public void setOrcamento(String orcamento) {
+    public void setOrcamento(double orcamento) {
         this.orcamento = orcamento;
     }
 

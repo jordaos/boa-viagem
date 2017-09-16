@@ -12,12 +12,26 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
+
+import com.ufc.jordao.boaviagem.controller.ViagemController;
+import com.ufc.jordao.boaviagem.model.TipoViagem;
 
 public class NewTripActivity extends Activity implements Button.OnClickListener {
 
     private Button dataChegadaButton;
     private Button dataSaidaButton;
+    private Date dataSaida;
+    private Date dataChegada;
+
+    private EditText destinoET;
+    private RadioGroup tipoRdGroup;
+    private RadioButton tipoRdButton;
+    private EditText orcamentoET;
+    private EditText qtdPessoasET;
 
     static final int DATE_DIALOG_ID = 0;
 
@@ -29,6 +43,34 @@ public class NewTripActivity extends Activity implements Button.OnClickListener 
         dataSaidaButton = (Button) findViewById(R.id.dataSaida);
         dataChegadaButton.setOnClickListener(this);
         dataSaidaButton.setOnClickListener(this);
+
+        destinoET = (EditText) findViewById(R.id.destinoEditText);
+        tipoRdGroup = (RadioGroup) findViewById(R.id.tipoViagemRadioButton);
+        orcamentoET = (EditText) findViewById(R.id.orcamentoEditText);
+        qtdPessoasET = (EditText) findViewById(R.id.qtdPessoasEditText);
+    }
+
+    public void salvarViagem(){
+        int selectedId = tipoRdGroup.getCheckedRadioButtonId();
+        tipoRdButton = (RadioButton) findViewById(selectedId);
+
+        String destino = destinoET.getText().toString();
+
+        TipoViagem tipoViagem = TipoViagem.LAZER;// Default
+        switch (tipoRdButton.getText().toString()){
+            case "Lazer":
+                tipoViagem = TipoViagem.LAZER;
+                break;
+            case "Negócios":
+                tipoViagem = TipoViagem.NEGOCIOS;
+                break;
+        }
+
+        double orcamento = Double.parseDouble(orcamentoET.getText().toString());
+        int qtdPessoas = Integer.parseInt(qtdPessoasET.getText().toString());
+
+        ViagemController viagemController = new ViagemController();
+        viagemController.add(destino, tipoViagem, dataChegada, dataSaida, orcamento, qtdPessoas);
     }
 
     public void onClickBreadcrumb(View v){
@@ -59,17 +101,17 @@ public class NewTripActivity extends Activity implements Button.OnClickListener 
 
     private DatePickerDialog.OnDateSetListener dataSaidaListener = new DatePickerDialog.OnDateSetListener() {
         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-            Date date = new Date(year - 1900, monthOfYear, dayOfMonth);
+            dataSaida = new Date(year - 1900, monthOfYear, dayOfMonth);
             SimpleDateFormat sd1 = new SimpleDateFormat("dd/MMM/yyyy");
-            dataSaidaButton.setText(sd1.format(date));
+            dataSaidaButton.setText(sd1.format(dataSaida));
         }
     };
 
     private DatePickerDialog.OnDateSetListener dataChegadaListener = new DatePickerDialog.OnDateSetListener() {
         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-            Date date = new Date(year - 1900, monthOfYear, dayOfMonth);
+            dataChegada = new Date(year - 1900, monthOfYear, dayOfMonth);
             SimpleDateFormat sd1 = new SimpleDateFormat("dd/MMM/yyyy");
-            dataChegadaButton.setText(sd1.format(date));
+            dataChegadaButton.setText(sd1.format(dataChegada));
         }
     };
 

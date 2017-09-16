@@ -49,7 +49,7 @@
                 android:textSize="8pt"/>
 
             <EditText
-                android:id="@+id/destino"
+                android:id="@+id/destinoEditText"
                 android:inputType="text"
                 android:background="@drawable/edit_text_box"
                 android:textColor="@color/colorPrimaryDark"/>
@@ -66,7 +66,7 @@
                 android:textSize="8pt"/>
 
             <RadioGroup
-                android:id="@+id/tipoViagem"
+                android:id="@+id/tipoViagemRadioButton"
                 android:orientation="horizontal">
 
                 <RadioButton
@@ -142,7 +142,7 @@
                 android:textSize="8pt"/>
 
             <EditText
-                android:id="@+id/orcamento"
+                android:id="@+id/orcamentoEditText"
                 android:inputType="numberDecimal"
                 android:background="@drawable/edit_text_box"
                 android:textColor="@color/colorPrimaryDark"/>
@@ -161,7 +161,7 @@
                     android:textSize="8pt"/>
 
                 <EditText
-                    android:id="@+id/quantidadePessoas"
+                    android:id="@+id/qtdPessoasEditText"
                     android:inputType="number"
                     android:padding="5dp"
                     android:background="@drawable/edit_text_line"
