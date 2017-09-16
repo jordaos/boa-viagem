@@ -16,7 +16,7 @@ public class GastoRepository {
     }
 
     public ArrayList<Gasto> getAll(){
-        ViagemRepository viagemRepository = new ViagemRepository();
+        ViagemRepository viagemRepository = ViagemRepository.getInstance();
         ArrayList<Gasto> listGasto = new ArrayList<Gasto>();
         for (Viagem viagem : viagemRepository.getAll()) {
             listGasto.addAll(viagem.getListGastos());

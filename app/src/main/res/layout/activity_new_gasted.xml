@@ -117,7 +117,7 @@
                 android:textSize="8pt"/>
 
             <Spinner
-                android:id="@+id/local"
+                android:id="@+id/locaisSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
             </Spinner>

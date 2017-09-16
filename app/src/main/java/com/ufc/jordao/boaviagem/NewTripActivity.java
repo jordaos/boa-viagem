@@ -50,7 +50,7 @@ public class NewTripActivity extends Activity implements Button.OnClickListener 
         qtdPessoasET = (EditText) findViewById(R.id.qtdPessoasEditText);
     }
 
-    public void salvarViagem(){
+    public void salvarViagem(View view){
         int selectedId = tipoRdGroup.getCheckedRadioButtonId();
         tipoRdButton = (RadioButton) findViewById(selectedId);
 
@@ -71,6 +71,10 @@ public class NewTripActivity extends Activity implements Button.OnClickListener 
 
         ViagemController viagemController = new ViagemController();
         viagemController.add(destino, tipoViagem, dataChegada, dataSaida, orcamento, qtdPessoas);
+
+        String message = "Viagem cadastrada com sucesso!";
+        Toast toast = Toast.makeText(this, message, Toast.LENGTH_SHORT);
+        toast.show();
     }
 
     public void onClickBreadcrumb(View v){

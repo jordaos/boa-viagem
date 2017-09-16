@@ -15,12 +15,16 @@ public class ViagemController {
     private ViagemRepository repository;
 
     public ViagemController(){
-        repository = new ViagemRepository();
+        repository = ViagemRepository.getInstance();
     }
 
     public void add(String destino, TipoViagem tipo, Date dataChegada, Date dataSaida, double orcamento, int qtdPessoas){
         Viagem viagem = new Viagem(destino, tipo, dataChegada, dataSaida, orcamento, qtdPessoas);
         repository.addViagem(viagem);
+    }
+
+    public ArrayList<Viagem> getAll(){
+        return repository.getAll();
     }
 
     public ArrayList<String> getDestinos(){

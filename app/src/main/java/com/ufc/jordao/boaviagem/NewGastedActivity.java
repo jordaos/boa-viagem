@@ -11,19 +11,23 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
 
+import com.ufc.jordao.boaviagem.controller.ViagemController;
 import com.ufc.jordao.boaviagem.repository.ViagemRepository;
 
 public class NewGastedActivity extends Activity implements View.OnClickListener {
 
     private Spinner categoria;
-    private Spinner local;
+    private Spinner locais;
     private Button dataGasto;
+
+    private ViagemController viagemController;
 
     static final int DATE_DIALOG_ID = 0;
 
@@ -32,6 +36,8 @@ public class NewGastedActivity extends Activity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_gasted);
 
+        viagemController = new ViagemController();
+
         ArrayAdapter<CharSequence> adapter = null;
         adapter = ArrayAdapter.createFromResource(this, R.array.categoria_gasto,
                 android.R.layout.simple_spinner_item);
@@ -39,13 +45,10 @@ public class NewGastedActivity extends Activity implements View.OnClickListener 
         categoria = (Spinner) findViewById(R.id.categoria);
         categoria.setAdapter(adapter);
 
-       /*
-        ViagemRepository viagemRepository = null;
-        ArrayList<String> destinos = viagemRepository.getAllDestinos();
-        ArrayAdapter adapter2 = new ArrayAdapter(this, android.R.layout.simple_spinner_item, destinos);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        local = (Spinner) findViewById(R.id.local);
-        local.setAdapter(adapter2);*/
+        locais = (Spinner) findViewById(R.id.locaisSpinner);
+        ArrayAdapter<String> cidadesSpinner = new ArrayAdapter<String>(NewGastedActivity.this, android.R.layout.simple_spinner_dropdown_item, viagemController.getDestinos());
+        cidadesSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        locais.setAdapter(cidadesSpinner);
 
         dataGasto = (Button) findViewById(R.id.dataGasto);
         dataGasto.setOnClickListener(this);

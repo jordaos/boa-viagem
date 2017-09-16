@@ -10,9 +10,21 @@ import java.util.ArrayList;
 
 public class ViagemRepository {
     private ArrayList<Viagem> listViagens;
+    private static volatile ViagemRepository INSTANCE;
 
-    public ViagemRepository(){
-        this.listViagens = new ArrayList<Viagem>();
+    private ViagemRepository(){
+        listViagens = new ArrayList<Viagem>();
+    }
+
+    public static ViagemRepository getInstance() {
+        if (INSTANCE == null) {
+            synchronized (ViagemRepository.class) {
+                if (INSTANCE == null) {
+                    INSTANCE = new ViagemRepository();
+                }
+            }
+        }
+        return INSTANCE;
     }
 
     public void addViagem(Viagem viagem){

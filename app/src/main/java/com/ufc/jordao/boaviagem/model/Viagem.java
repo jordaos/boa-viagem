@@ -80,4 +80,9 @@ public class Viagem {
     public void setQtdPessoas(int qtdPessoas) {
         this.qtdPessoas = qtdPessoas;
     }
+
+    @Override
+    public String toString() {
+        return destino;
+    }
 }
