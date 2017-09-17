@@ -11,7 +11,13 @@ public class Gasto {
     private double valor;
     private Date data;
     private String descricao;
-    private String local;
+
+    public Gasto(TipoGasto tipoGasto, double valor, Date data, String descricao) {
+        this.tipoGasto = tipoGasto;
+        this.valor = valor;
+        this.data = data;
+        this.descricao = descricao;
+    }
 
     public TipoGasto getTipoGasto() {
         return tipoGasto;
@@ -45,11 +51,13 @@ public class Gasto {
         this.descricao = descricao;
     }
 
-    public String getLocal() {
-        return local;
-    }
-
-    public void setLocal(String local) {
-        this.local = local;
+    @Override
+    public String toString() {
+        return "Gasto{" +
+                "tipoGasto=" + tipoGasto +
+                ", valor=" + valor +
+                ", data=" + data +
+                ", descricao='" + descricao + '\'' +
+                '}';
     }
 }

@@ -1,5 +1,7 @@
 package com.ufc.jordao.boaviagem.controller;
 
+import com.ufc.jordao.boaviagem.model.Gasto;
+import com.ufc.jordao.boaviagem.model.TipoGasto;
 import com.ufc.jordao.boaviagem.model.TipoViagem;
 import com.ufc.jordao.boaviagem.model.Viagem;
 import com.ufc.jordao.boaviagem.repository.ViagemRepository;
@@ -18,6 +20,13 @@ public class ViagemController {
         repository = ViagemRepository.getInstance();
     }
 
+    public void addGasto(TipoGasto tipoGasto, double valor, Date data, String descricao, int indexViagem){
+        Gasto gasto = new Gasto(tipoGasto, valor, data, descricao);
+        Viagem viagem = getByIndex(indexViagem);
+
+        repository.addGasto(gasto, viagem);
+    }
+
     public void add(String destino, TipoViagem tipo, Date dataChegada, Date dataSaida, double orcamento, int qtdPessoas){
         Viagem viagem = new Viagem(destino, tipo, dataChegada, dataSaida, orcamento, qtdPessoas);
         repository.addViagem(viagem);
@@ -33,5 +42,9 @@ public class ViagemController {
             destinos.add(viagem.getDestino());
         }
         return destinos;
+    }
+
+    public Viagem getByIndex(int index){
+        return repository.getAll().get(index);
     }
 }

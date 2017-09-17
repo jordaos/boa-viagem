@@ -23,6 +23,7 @@ public class Viagem {
         this.dataSaida = dataSaida;
         this.orcamento = orcamento;
         this.qtdPessoas = qtdPessoas;
+        this.listGastos = new ArrayList<Gasto>();
     }
 
     public ArrayList<Gasto> getListGastos() {
@@ -83,6 +84,14 @@ public class Viagem {
 
     @Override
     public String toString() {
-        return destino;
+        return "Viagem{" +
+                "destino='" + destino + '\'' +
+                ", tipo=" + tipo +
+                ", dataChegada=" + dataChegada +
+                ", dataSaida=" + dataSaida +
+                ", orcamento=" + orcamento +
+                ", qtdPessoas=" + qtdPessoas +
+                ", listGastos=" + listGastos +
+                '}';
     }
 }

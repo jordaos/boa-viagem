@@ -1,5 +1,6 @@
 package com.ufc.jordao.boaviagem.repository;
 
+import com.ufc.jordao.boaviagem.model.Gasto;
 import com.ufc.jordao.boaviagem.model.Viagem;
 
 import java.util.ArrayList;
@@ -33,5 +34,16 @@ public class ViagemRepository {
 
     public ArrayList<Viagem> getAll(){
         return this.listViagens;
+    }
+
+    public void addGasto(Gasto gasto, Viagem viagem){
+        ArrayList<Gasto> gastos = viagem.getListGastos();
+        gastos.add(gasto);
+        viagem.setListGastos(gastos);
+        Viagem aux = viagem;
+
+        listViagens.remove(viagem);
+
+        listViagens.add(aux);
     }
 }
