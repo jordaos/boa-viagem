@@ -3,9 +3,7 @@ package com.ufc.jordao.boaviagem;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.LinearLayout;
 
 /**
  * Created by jordao on 09/09/17.
@@ -21,8 +19,8 @@ public class HomeActivity extends Activity {
     public void selecionarOpcao(View v){
         switch (v.getId()){
             case R.id.item_novo_gasto:
-                Intent newGastedActivity = new Intent(HomeActivity.this, NewGastedActivity.class);
-                startActivity(newGastedActivity);
+                Intent newExpenseActivity = new Intent(HomeActivity.this, NewExpenseActivity.class);
+                startActivity(newExpenseActivity);
                 break;
             case R.id.item_nova_viagem:
                 Intent newTripActivity = new Intent(HomeActivity.this, NewTripActivity.class);

@@ -9,7 +9,6 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -19,9 +18,8 @@ import android.widget.Spinner;
 
 import com.ufc.jordao.boaviagem.controller.ViagemController;
 import com.ufc.jordao.boaviagem.model.TipoGasto;
-import com.ufc.jordao.boaviagem.model.Viagem;
 
-public class NewGastedActivity extends Activity implements View.OnClickListener {
+public class NewExpenseActivity extends Activity implements View.OnClickListener {
 
     private Spinner categoriaSpinner;
     private Spinner locaisSpinner;
@@ -38,7 +36,7 @@ public class NewGastedActivity extends Activity implements View.OnClickListener 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_gasted);
+        setContentView(R.layout.activity_new_expense);
 
         viagemController = new ViagemController();
 
@@ -50,7 +48,7 @@ public class NewGastedActivity extends Activity implements View.OnClickListener 
         categoriaSpinner.setAdapter(adapter);
 
         locaisSpinner = (Spinner) findViewById(R.id.locaisSpinner);
-        ArrayAdapter<String> cidadesSpinner = new ArrayAdapter<String>(NewGastedActivity.this, android.R.layout.simple_spinner_dropdown_item, viagemController.getDestinos());
+        ArrayAdapter<String> cidadesSpinner = new ArrayAdapter<String>(NewExpenseActivity.this, android.R.layout.simple_spinner_dropdown_item, viagemController.getDestinos());
         cidadesSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         locaisSpinner.setAdapter(cidadesSpinner);
 
@@ -88,7 +86,7 @@ public class NewGastedActivity extends Activity implements View.OnClickListener 
     public void onClickBreadcrumb(View v){
         switch (v.getId()){
             case R.id.toHomeBreadcrumb:
-                Intent newGastedActivity = new Intent(NewGastedActivity.this, HomeActivity.class);
+                Intent newGastedActivity = new Intent(NewExpenseActivity.this, HomeActivity.class);
                 startActivity(newGastedActivity);
                 break;
         }
