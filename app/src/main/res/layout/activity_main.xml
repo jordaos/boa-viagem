@@ -40,7 +40,8 @@
             android:inputType="textPersonName"
             android:padding="5pt"
             android:background="@drawable/edit_text_line"
-            android:textColor="@color/colorPrimaryDark"/>
+            android:textColor="@color/colorPrimaryDark"
+            android:text="leitor"/>
 
         <TextView
             android:id="@+id/textView2"
@@ -59,7 +60,8 @@
             android:inputType="textPassword"
             android:padding="5pt"
             android:background="@drawable/edit_text_line"
-            android:textColor="@color/colorPrimaryDark"/>
+            android:textColor="@color/colorPrimaryDark"
+            android:text="123"/>
 
         <Button
             android:id="@+id/loginButton"

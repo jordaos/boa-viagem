@@ -27,8 +27,16 @@ public class ViagemController {
         repository.addGasto(gasto, viagem);
     }
 
+    public void addGasto(Gasto gasto, Viagem  viagem){
+        repository.addGasto(gasto, viagem);
+    }
+
     public void add(String destino, TipoViagem tipo, Date dataChegada, Date dataSaida, double orcamento, int qtdPessoas){
         Viagem viagem = new Viagem(destino, tipo, dataChegada, dataSaida, orcamento, qtdPessoas);
+        repository.addViagem(viagem);
+    }
+
+    public void add(Viagem viagem){
         repository.addViagem(viagem);
     }
 
