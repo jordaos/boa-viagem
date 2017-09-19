@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.ufc.jordao.boaviagem.controller.ViagemController;
 import com.ufc.jordao.boaviagem.model.TipoGasto;
@@ -81,6 +82,10 @@ public class NewExpenseActivity extends Activity implements View.OnClickListener
         int indexViagem = locaisSpinner.getSelectedItemPosition();
 
         viagemController.addGasto(tipoGasto, valor, dataGasto, descricao, indexViagem);
+
+        String message = "Gasto cadastrado com sucesso!";
+        Toast toast = Toast.makeText(this, message, Toast.LENGTH_SHORT);
+        toast.show();
     }
 
     public void onClickBreadcrumb(View v){

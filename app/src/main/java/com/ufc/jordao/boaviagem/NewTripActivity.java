@@ -52,6 +52,8 @@ public class NewTripActivity extends Activity implements Button.OnClickListener 
 
     public void salvarViagem(View view){
         int selectedId = tipoRdGroup.getCheckedRadioButtonId();
+
+
         tipoRdButton = (RadioButton) findViewById(selectedId);
 
         String destino = destinoET.getText().toString();

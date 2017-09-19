@@ -82,16 +82,18 @@ public class Viagem {
         this.qtdPessoas = qtdPessoas;
     }
 
+    public double getGastoTotal(){
+        double total = 0;
+        for (Gasto gasto: listGastos) {
+            total += gasto.getValor();
+        }
+        return total;
+    }
+
     @Override
     public String toString() {
-        return "Viagem{" +
-                "destino='" + destino + '\'' +
-                ", tipo=" + tipo +
-                ", dataChegada=" + dataChegada +
-                ", dataSaida=" + dataSaida +
-                ", orcamento=" + orcamento +
-                ", qtdPessoas=" + qtdPessoas +
-                ", listGastos=" + listGastos +
-                '}';
+        return destino + "\n"
+                + dataSaida + " a " + dataChegada + "\n"
+                + "Gasto total: " + getGastoTotal();
     }
 }

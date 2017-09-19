@@ -16,9 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomeActivity"></activity>
-        <activity android:name=".NewTripActivity"></activity>
-        <activity android:name=".NewExpenseActivity"></activity>
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".NewTripActivity" />
+        <activity android:name=".NewExpenseActivity" />
+        <activity android:name=".TripListActivity"></activity>
     </application>
 
 </manifest>

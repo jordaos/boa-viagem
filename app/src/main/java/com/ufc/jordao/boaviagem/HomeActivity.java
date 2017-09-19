@@ -27,6 +27,8 @@ public class HomeActivity extends Activity {
                 startActivity(newTripActivity);
                 break;
             case R.id.item_minhas_viagens:
+                Intent tripListActivity = new Intent(HomeActivity.this, TripListActivity.class);
+                startActivity(tripListActivity);
                 break;
             case R.id.item_configuracoes:
                 break;
