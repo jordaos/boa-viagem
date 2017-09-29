@@ -32,6 +32,11 @@ public class ViagemRepository {
         listViagens.add(viagem);
     }
 
+    public void editViagem(Viagem velha, Viagem nova){
+        listViagens.remove(velha);
+        listViagens.add(nova);
+    }
+
     public ArrayList<Viagem> getAll(){
         return this.listViagens;
     }
@@ -45,5 +50,9 @@ public class ViagemRepository {
         listViagens.remove(viagem);
 
         listViagens.add(aux);
+    }
+
+    public void removeViagem(Viagem viagem){
+        listViagens.remove(viagem);
     }
 }

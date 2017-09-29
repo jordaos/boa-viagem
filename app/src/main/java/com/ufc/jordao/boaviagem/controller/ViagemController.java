@@ -36,6 +36,11 @@ public class ViagemController {
         repository.addViagem(viagem);
     }
 
+    public void editViagem(Viagem viagem, String destino, TipoViagem tipo, Date dataChegada, Date dataSaida, double orcamento, int qtdPessoas){
+        Viagem novaViagem = new Viagem(destino, tipo, dataChegada, dataSaida, orcamento, qtdPessoas);
+        repository.editViagem(viagem, novaViagem);
+    }
+
     public void add(Viagem viagem){
         repository.addViagem(viagem);
     }
@@ -54,5 +59,10 @@ public class ViagemController {
 
     public Viagem getByIndex(int index){
         return repository.getAll().get(index);
+    }
+
+    public void removeViagem(int index){
+        Viagem viagem = getByIndex(index);
+        repository.removeViagem(viagem);
     }
 }

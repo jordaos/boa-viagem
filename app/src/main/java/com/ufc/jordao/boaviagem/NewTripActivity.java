@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.ufc.jordao.boaviagem.controller.ViagemController;
 import com.ufc.jordao.boaviagem.model.TipoViagem;
+import com.ufc.jordao.boaviagem.model.Viagem;
 
 public class NewTripActivity extends Activity implements Button.OnClickListener {
 
@@ -32,6 +33,10 @@ public class NewTripActivity extends Activity implements Button.OnClickListener 
     private RadioButton tipoRdButton;
     private EditText orcamentoET;
     private EditText qtdPessoasET;
+
+    private Viagem viagem;
+
+    private ViagemController viagemController;
 
     static final int DATE_DIALOG_ID = 0;
 
@@ -48,11 +53,25 @@ public class NewTripActivity extends Activity implements Button.OnClickListener 
         tipoRdGroup = (RadioGroup) findViewById(R.id.tipoViagemRadioButton);
         orcamentoET = (EditText) findViewById(R.id.orcamentoEditText);
         qtdPessoasET = (EditText) findViewById(R.id.qtdPessoasEditText);
+
+        viagemController = new ViagemController();
+
+        /* Verifica se é edição ou cadastro */
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        int posicao = bundle.getInt("pos");
+        viagem = viagemController.getByIndex(posicao);
+        if(viagem != null){
+            destinoET.setText(viagem.getDestino());
+            dataChegadaButton.setText(viagem.getDataChegada().toString());
+            dataSaidaButton.setText(viagem.getDataSaida().toString());
+            orcamentoET.setText(""+viagem.getOrcamento());
+            qtdPessoasET.setText(viagem.getQtdPessoas());
+        }
     }
 
     public void salvarViagem(View view){
         int selectedId = tipoRdGroup.getCheckedRadioButtonId();
-
 
         tipoRdButton = (RadioButton) findViewById(selectedId);
 
@@ -71,12 +90,20 @@ public class NewTripActivity extends Activity implements Button.OnClickListener 
         double orcamento = Double.parseDouble(orcamentoET.getText().toString());
         int qtdPessoas = Integer.parseInt(qtdPessoasET.getText().toString());
 
-        ViagemController viagemController = new ViagemController();
-        viagemController.add(destino, tipoViagem, dataChegada, dataSaida, orcamento, qtdPessoas);
+        if(viagem == null) {
+            viagemController.add(destino, tipoViagem, dataChegada, dataSaida, orcamento, qtdPessoas);
 
-        String message = "Viagem cadastrada com sucesso!";
-        Toast toast = Toast.makeText(this, message, Toast.LENGTH_SHORT);
-        toast.show();
+            String message = "Viagem cadastrada com sucesso!";
+            Toast toast = Toast.makeText(this, message, Toast.LENGTH_SHORT);
+            toast.show();
+        }else{
+            viagemController.editViagem(viagem, destino, tipoViagem, dataChegada, dataSaida, orcamento, qtdPessoas);
+
+            String message = "Viagem editada com sucesso!";
+            Toast toast = Toast.makeText(this, message, Toast.LENGTH_SHORT);
+            toast.show();
+            finish();
+        }
     }
 
     public void onClickBreadcrumb(View v){
