@@ -9,6 +9,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -59,14 +60,16 @@ public class NewTripActivity extends Activity implements Button.OnClickListener 
         /* Verifica se é edição ou cadastro */
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
-        int posicao = bundle.getInt("pos");
-        viagem = viagemController.getByIndex(posicao);
-        if(viagem != null){
+        viagem = null;
+
+        if(intent.hasExtra("pos")){
+            int posicao = bundle.getInt("pos");
+            viagem = viagemController.getByIndex(posicao);
             destinoET.setText(viagem.getDestino());
             dataChegadaButton.setText(viagem.getDataChegada().toString());
             dataSaidaButton.setText(viagem.getDataSaida().toString());
             orcamentoET.setText(""+viagem.getOrcamento());
-            qtdPessoasET.setText(viagem.getQtdPessoas());
+            qtdPessoasET.setText(""+viagem.getQtdPessoas());
         }
     }
 
