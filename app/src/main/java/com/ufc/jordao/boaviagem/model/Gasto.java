@@ -53,11 +53,8 @@ public class Gasto {
 
     @Override
     public String toString() {
-        return "Gasto{" +
-                "tipoGasto=" + tipoGasto +
-                ", valor=" + valor +
-                ", data=" + data +
-                ", descricao='" + descricao + '\'' +
-                '}';
+        return descricao + "\n" +
+                valor + "\n" +
+                data;
     }
 }

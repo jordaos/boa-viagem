@@ -58,12 +58,16 @@ public class TripListActivity extends Activity implements MenuDialogFragment.Not
 
     @Override
     public void onDialogNovoGastoClick(int posicao) {
-
+        Intent intent = new Intent(TripListActivity.this, NewExpenseActivity.class);
+        intent.putExtra("pos", posicao);
+        startActivity(intent);
     }
 
     @Override
     public void onDialogGastosRealizadosClick(int posicao) {
-
+        Intent intent = new Intent(TripListActivity.this, ExpenseListActivity.class);
+        intent.putExtra("pos", posicao);
+        startActivity(intent);
     }
 
     @Override

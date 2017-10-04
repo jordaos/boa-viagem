@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.ufc.jordao.boaviagem.controller.ViagemController;
 import com.ufc.jordao.boaviagem.model.TipoGasto;
+import com.ufc.jordao.boaviagem.model.Viagem;
 
 public class NewExpenseActivity extends Activity implements View.OnClickListener {
 
@@ -58,6 +59,14 @@ public class NewExpenseActivity extends Activity implements View.OnClickListener
 
         valorET = (EditText) findViewById(R.id.valorEditText);
         descricaoET = (EditText) findViewById(R.id.descricaoEditText);
+
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+
+        if(intent.hasExtra("pos")) {
+            int posicao = bundle.getInt("pos");
+            locaisSpinner.setSelection(posicao);
+        }
     }
 
     public void salvarViagem(View view){
