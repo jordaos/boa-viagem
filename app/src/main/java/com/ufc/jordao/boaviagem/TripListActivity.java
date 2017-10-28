@@ -2,7 +2,6 @@ package com.ufc.jordao.boaviagem;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -12,13 +11,12 @@ import android.widget.SimpleAdapter;
 
 import com.ufc.jordao.boaviagem.controller.ViagemController;
 import com.ufc.jordao.boaviagem.model.Viagem;
-import com.ufc.jordao.boaviagem.repository.ViagemRepository;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class TripListActivity extends Activity implements MenuDialogFragment.NotificarEscutadorDoDialog, AdapterView.OnItemClickListener, SimpleAdapter.ViewBinder{
 
+    private final String TAG_POSITION = "pos";
     ViagemController viagemController;
     ArrayAdapter<Viagem> adapter;
     ListView lista;
@@ -46,27 +44,29 @@ public class TripListActivity extends Activity implements MenuDialogFragment.Not
                 Intent tripListActivity = new Intent(TripListActivity.this, HomeActivity.class);
                 startActivity(tripListActivity);
                 break;
+            default:
+                break;
         }
     }
 
     @Override
     public void onDialogEditarClick(int posicao) {
         Intent intent = new Intent(TripListActivity.this, NewTripActivity.class);
-        intent.putExtra("pos", posicao);
+        intent.putExtra(TAG_POSITION, posicao);
         startActivity(intent);
     }
 
     @Override
     public void onDialogNovoGastoClick(int posicao) {
         Intent intent = new Intent(TripListActivity.this, NewExpenseActivity.class);
-        intent.putExtra("pos", posicao);
+        intent.putExtra(TAG_POSITION, posicao);
         startActivity(intent);
     }
 
     @Override
     public void onDialogGastosRealizadosClick(int posicao) {
         Intent intent = new Intent(TripListActivity.this, ExpenseListActivity.class);
-        intent.putExtra("pos", posicao);
+        intent.putExtra(TAG_POSITION, posicao);
         startActivity(intent);
     }
 

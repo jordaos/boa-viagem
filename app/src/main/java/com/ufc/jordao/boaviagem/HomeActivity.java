@@ -5,13 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.ufc.jordao.boaviagem.controller.ViagemController;
-import com.ufc.jordao.boaviagem.model.Gasto;
-import com.ufc.jordao.boaviagem.model.TipoGasto;
-import com.ufc.jordao.boaviagem.model.TipoViagem;
-import com.ufc.jordao.boaviagem.model.Viagem;
-
-import java.util.Date;
 
 /**
  * Created by jordao on 09/09/17.
@@ -39,6 +32,8 @@ public class HomeActivity extends Activity {
                 startActivity(tripListActivity);
                 break;
             case R.id.item_configuracoes:
+                break;
+            default:
                 break;
         }
     }

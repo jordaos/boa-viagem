@@ -9,7 +9,6 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -88,6 +87,8 @@ public class NewTripActivity extends Activity implements Button.OnClickListener 
             case "Negócios":
                 tipoViagem = TipoViagem.NEGOCIOS;
                 break;
+            default:
+                break;
         }
 
         double orcamento = Double.parseDouble(orcamentoET.getText().toString());
@@ -115,6 +116,8 @@ public class NewTripActivity extends Activity implements Button.OnClickListener 
                 Intent newTripActivity = new Intent(NewTripActivity.this, HomeActivity.class);
                 startActivity(newTripActivity);
                 break;
+            default:
+                break;
         }
     }
 
@@ -131,6 +134,8 @@ public class NewTripActivity extends Activity implements Button.OnClickListener 
                 return new DatePickerDialog(this, dataChegadaListener, ano, mes, dia);
             case R.id.dataSaida:
                 return new DatePickerDialog(this, dataSaidaListener, ano, mes, dia);
+            default:
+                break;
         }
         return null;
     }
@@ -153,9 +158,10 @@ public class NewTripActivity extends Activity implements Button.OnClickListener 
 
     @Override
     public void onClick(View v) {
-        if (v == dataChegadaButton)
+        if (v == dataChegadaButton) {
             showDialog(R.id.dataChegada);
-        else if (v == dataSaidaButton)
+        }else if (v == dataSaidaButton) {
             showDialog(R.id.dataSaida);
+        }
     }
 }

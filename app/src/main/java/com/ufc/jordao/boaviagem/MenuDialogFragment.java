@@ -46,6 +46,8 @@ public class MenuDialogFragment extends DialogFragment {
                 case 3:
                     escutador.onDialogExcluiClick(pos);
                     break;
+                default:
+                    break;
             }
         }
     };

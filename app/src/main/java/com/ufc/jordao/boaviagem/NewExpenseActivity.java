@@ -19,7 +19,6 @@ import android.widget.Toast;
 
 import com.ufc.jordao.boaviagem.controller.ViagemController;
 import com.ufc.jordao.boaviagem.model.TipoGasto;
-import com.ufc.jordao.boaviagem.model.Viagem;
 
 public class NewExpenseActivity extends Activity implements View.OnClickListener {
 
@@ -84,6 +83,8 @@ public class NewExpenseActivity extends Activity implements View.OnClickListener
             case "Alimentação":
                 tipoGasto = TipoGasto.ALIMENTACAO;
                 break;
+            default:
+                break;
         }
 
         double valor = Double.parseDouble(valorET.getText().toString());
@@ -103,6 +104,8 @@ public class NewExpenseActivity extends Activity implements View.OnClickListener
                 Intent newGastedActivity = new Intent(NewExpenseActivity.this, HomeActivity.class);
                 startActivity(newGastedActivity);
                 break;
+            default:
+                break;
         }
     }
 
@@ -117,7 +120,8 @@ public class NewExpenseActivity extends Activity implements View.OnClickListener
         switch (id) {
             case R.id.dataGasto:
                 return new DatePickerDialog(this, dataGastoListener, ano, mes, dia);
-
+            default:
+                break;
         }
         return null;
     }
@@ -132,7 +136,8 @@ public class NewExpenseActivity extends Activity implements View.OnClickListener
 
     @Override
     public void onClick(View view) {
-        if (view == dataGastoBtn)
+        if (view == dataGastoBtn) {
             showDialog(R.id.dataGasto);
+        }
     }
 }

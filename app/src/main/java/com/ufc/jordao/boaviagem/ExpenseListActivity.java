@@ -2,13 +2,10 @@ package com.ufc.jordao.boaviagem;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 
 import com.ufc.jordao.boaviagem.controller.ViagemController;
 import com.ufc.jordao.boaviagem.model.Gasto;
@@ -53,6 +50,8 @@ public class ExpenseListActivity extends Activity {
             case R.id.toExpenseList:
                 Intent expenseListActivity = new Intent(ExpenseListActivity.this, TripListActivity.class);
                 startActivity(expenseListActivity);
+                break;
+            default:
                 break;
         }
     }

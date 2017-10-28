@@ -14,7 +14,7 @@ import java.util.Date;
 
 public class ViagemRepository {
     private ArrayList<Viagem> listViagens;
-    private static volatile ViagemRepository INSTANCE;
+    private static volatile ViagemRepository instance;
 
     private ViagemRepository(){
         listViagens = new ArrayList<Viagem>();
@@ -22,14 +22,14 @@ public class ViagemRepository {
     }
 
     public static ViagemRepository getInstance() {
-        if (INSTANCE == null) {
+        if (instance == null) {
             synchronized (ViagemRepository.class) {
-                if (INSTANCE == null) {
-                    INSTANCE = new ViagemRepository();
+                if (instance == null) {
+                    instance = new ViagemRepository();
                 }
             }
         }
-        return INSTANCE;
+        return instance;
     }
 
     public void addViagem(Viagem viagem){
