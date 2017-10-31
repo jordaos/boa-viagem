@@ -5,6 +5,7 @@ import com.ufc.jordao.boaviagem.model.TipoGasto;
 import com.ufc.jordao.boaviagem.model.TipoViagem;
 import com.ufc.jordao.boaviagem.model.Viagem;
 
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -13,7 +14,7 @@ import java.util.Date;
  */
 
 public class ViagemRepository {
-    private ArrayList<Viagem> listViagens;
+    private ArrayList< Viagem > listViagens;
     private static volatile ViagemRepository instance;
 
     private ViagemRepository(){
