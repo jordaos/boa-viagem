@@ -13,7 +13,7 @@ import java.util.Date;
  */
 
 public class ViagemRepository {
-    private ArrayList<Viagem> listViagens;
+    private ArrayList< Viagem > listViagens;
     private static volatile ViagemRepository instance;
 
     private ViagemRepository(){
