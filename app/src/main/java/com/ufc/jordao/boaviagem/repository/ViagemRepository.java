@@ -5,7 +5,6 @@ import com.ufc.jordao.boaviagem.model.TipoGasto;
 import com.ufc.jordao.boaviagem.model.TipoViagem;
 import com.ufc.jordao.boaviagem.model.Viagem;
 
-import java.util.List;
 import java.util.ArrayList;
 import java.util.Date;
 
