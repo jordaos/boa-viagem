@@ -32,7 +32,7 @@ task checkstyle(type: Checkstyle) {
 
     ignoreFailures true // Uncomment to fail where warnings > 0
     showViolations true
-    def maxErrors = 5 // aim to eventually reduce this to 0
+    /*def maxErrors = 5 // aim to eventually reduce this to 0
     doLast {
         reports.all { report ->
             def outputFile = report.destination
@@ -43,14 +43,14 @@ task checkstyle(type: Checkstyle) {
                 }
             }
         }
-    }
+    }*/
 }
 
 task findbugs(type: FindBugs, dependsOn: "assembleDebug") {
     ignoreFailures = false
     effort = "max"
     reportLevel = "high"
-    excludeFilter = new File("$configDir/findbugs/findbugs-filter.xml")
+    //excludeFilter = new File("$configDir/findbugs/findbugs-filter.xml")
     classes = files("${project.rootDir}/app/build/intermediates/classes")
 
     source 'src'
