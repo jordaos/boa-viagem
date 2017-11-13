@@ -22,7 +22,7 @@ public class ViagemRepository {
 
     private ViagemRepository(){
         listViagens = new ArrayList<Viagem>();
-        test(); // coment this if the test phase ends
+        //test(); // coment this if the test phase ends
     }
 
     public static ViagemRepository getInstance() {
@@ -58,6 +58,10 @@ public class ViagemRepository {
         listViagens.remove(viagem);
 
         listViagens.add(aux);
+    }
+
+    public void clear(){
+        this.listViagens = new ArrayList<Viagem>();
     }
 
     public void removeViagem(Viagem viagem){
