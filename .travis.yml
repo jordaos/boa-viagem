@@ -1,6 +1,12 @@
 language: android
 android:
   components:
+    # Update Android SDK Tools
+    - tools
+
+    # Support library
+    - extra-android-support
+
     # The BuildTools version used by your project
     - build-tools-19.1.0
 
