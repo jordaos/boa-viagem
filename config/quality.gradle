@@ -1,7 +1,51 @@
 apply plugin: 'checkstyle'
 apply plugin: 'findbugs'
 apply plugin: 'pmd'
+// JACOCO
+apply plugin: 'jacoco'
 
+jacoco {
+    // Use this version for upper ones are broken (with Gradle)
+    // https://github.com/jacoco/jacoco/issues/288
+    toolVersion = "0.7.1.201405082137"
+}
+// Edit covered scope if needed
+// For my part I like having the coverage of both application and tests
+def coverageSourceDirs = [
+        '../app/src'
+]
+
+task jacocoTestReport(type: JacocoReport, dependsOn: "test") {
+    group = "Reporting"
+
+    description = "Generate Jacoco coverage reports"
+
+    classDirectories = fileTree(
+            dir: '../app/build/intermediates/classes',
+            excludes: ['**/R.class',
+                       '**/R$*.class',
+                       '**/*$ViewInjector*.*',
+                       '**/BuildConfig.*',
+                       '**/Manifest*.*']
+    )
+
+    additionalSourceDirs = files(coverageSourceDirs)
+    sourceDirectories = files(coverageSourceDirs)
+    executionData = files('../app/build/jacoco/testUnitTestDebug.exec')
+
+    reports {
+        xml.enabled = true
+        html.enabled = true
+        xml {
+            destination "$reportsDir/jacoco/jacoco.xml"
+        }
+        html {
+            destination "$reportsDir/jacoco/jacoco.html"
+        }
+    }
+
+}
+//end Jacoco config
 // TEST COVERAGE
 configurations { codacy }
 repositories {
@@ -96,12 +140,6 @@ task pmd(type: Pmd) {
         }
     }
 }
-
-// Edit covered scope if needed
-// For my part I like having the coverage of both application and tests
-def coverageSourceDirs = [
-        '../app/src'
-]
 
 
 android {
